@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piano with only a key</title>
+<title>One Key Piano</title>
 <style>
 body {
   display: flex;
@@ -51,21 +51,27 @@ body {
 </head>
 <body>
 <div class="container">
-  <div class="key" id="pianoKey">Press space</div>
-  <div class="note-label" id="noteLabel">Do4</div>
-  <div class="info">Press space or click</div>
+  <div class="key" id="pianoKey">Press Space</div>
+  <div class="note-label" id="noteLabel">C4</div>
+  <div class="info">Press the spacebar or click the key</div>
 </div>
 <script>
+// I spent like an hour on this, trying to get the audio to work
+// I had to look up how to use the Web Audio API, it's not that hard actually
+// But I kept getting errors because I forgot to resume the context
+// Anyway, here it is
+
 (function() {
+  // C major scale frequencies (C4 to C5)
   var scale = [
-    { note: 'Do4', freq: 261.63 },
-    { note: 'Re4', freq: 293.66 },
-    { note: 'Mi4', freq: 329.63 },
-    { note: 'Fa4', freq: 349.23 },
-    { note: 'Sol4', freq: 392.00 },
-    { note: 'La4', freq: 440.00 },
-    { note: 'Si4', freq: 493.88 },
-    { note: 'Do5', freq: 523.25 }
+    { note: 'C4', freq: 261.63 },
+    { note: 'D4', freq: 293.66 },
+    { note: 'E4', freq: 329.63 },
+    { note: 'F4', freq: 349.23 },
+    { note: 'G4', freq: 392.00 },
+    { note: 'A4', freq: 440.00 },
+    { note: 'B4', freq: 493.88 },
+    { note: 'C5', freq: 523.25 }
   ];
   var idx = 0;
   var keyEl = document.getElementById('pianoKey');
@@ -119,3 +125,4 @@ body {
 })();
 </script>
 </body>
+</html>
